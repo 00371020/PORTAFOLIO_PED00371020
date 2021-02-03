@@ -16,8 +16,8 @@ private:
 public:
     Lista();
     ~Lista();
-    void InsertarInicio();
-    void InsIni(int);
+    void Insertar(void);
+    void Ins(int);
     void MostrarPares();
     void MostrarImpares();
     void Eliminacion(int num);
@@ -41,16 +41,16 @@ Lista::~Lista()
     }
 }
 
-void Lista::InsertarInicio()
+void Lista::Insertar(void)
 {
-    int otra, numero;
+    int otra = 0, numero = 0;
 
     do
     {
         cout << "Digite un entero" << endl;
         cin >> numero;
 
-        InsIni(numero);
+        Ins(numero);
 
         cout<< endl<< endl<< "Si desea ingresar mas datos presione 1, para terminar presione 0."<< endl;
         cin >> otra;
@@ -58,7 +58,7 @@ void Lista::InsertarInicio()
     } while (otra != 0);
 }
 
-void Lista::InsIni(int numero)
+void Lista::Ins(int numero)
 {
     nodo *nuevo;
 
@@ -139,7 +139,7 @@ void Lista::ElimAux(int num)
             }
         } while (s->sig);
         
-        cout << "El / Los elementos han sido eliminados" << endl;
+        cout << endl << "El / Los elementos han sido eliminados" << endl << endl;
 
     }
 }
@@ -167,12 +167,14 @@ int main()
         switch (opcion)
         {
         case 1:
-            obj.InsertarInicio();
+            obj.Insertar();
             break;
         case 2:
+            cout << "Los numeros pares de la lista son:" << endl << endl;
             obj.MostrarPares();
             break;
         case 3:
+            cout << "Los numeros impares de la lista son:" << endl << endl;
             obj.MostrarImpares();
             break;       
         case 4:
